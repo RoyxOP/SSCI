@@ -1,28 +1,28 @@
-from PIL import ImageGrab                                # ss almak için gerekli kütüphane
-import random                                               # random kütüphanesi
-import os                                                   # os kütüphanesi
-import getpass                                              # username almak için gerekli kütüphane
+from PIL import ImageGrab                                
+import random                                               # 
+import os                                                   # 
+import getpass                                              #
 import time
 import sys 
 from pynput.keyboard import Key, Listener
 import logging
-user_name = getpass.getuser()                               # username adlı değişkene username'in ne olduğunu öğrenip tanımladık.
+user_name = getpass.getuser()                               # 
 
-if not os.path.exists("C:\\Users\\%s\\ssler" % user_name):  #eğer users\\%username%\\ssler klasörü varsa tekrar oluşturmayacak. 
-    os.makedirs("C:\\Users\\%s\\ssler" % user_name)         # Yoksa belirtilen yere ssler isimli bir klasör oluşturulacak.
+if not os.path.exists("C:\\Users\\%s\\ssler" % user_name):  
+    os.makedirs("C:\\Users\\%s\\ssler" % user_name)         
 
-lokasyon = "C:\\Users\\%s\\ssler\\" % user_name             # lokasyon isimli bir değişken oluşturup bu değişkene username'den aldığımız kullanıcı ismini ekliyoruz.
+lokasyon = "C:\\Users\\%s\\ssler\\" % user_name             #
 
                                                             
 
 while True:
-    def ssal():                                             # ssal isimli bir fonksiyon oluşturduk
-        global lokasyon                                     # lokasyon fonksiyon dışında olduğundan global ile dışardan içeri çağırdık.
-        photoid = random.randint(10000000, 900000000)       # photoid ile ss'lere bir id vermek istedik.
+    def ssal():                                             # 
+        global lokasyon                                     # 
+        photoid = random.randint(10000000, 900000000)       # 
         snapshot = ImageGrab.grab()
-        save_path = "%s\\%s.jpg" %(lokasyon, photoid)       # snapshot değişkenine yakalama komutu verdik.
+        save_path = "%s\\%s.jpg" %(lokasyon, photoid)       # 
         snapshot.save(save_path)
-        time.sleep(10)                                      # değişkeni save ile istediğimiz lokasyona kayıt etmesini istedik.
+        time.sleep(10)                                      # 
     ssal()
 
 
